@@ -38,5 +38,11 @@
   - `__proto__` can only be an object or null
 
 - Explain what `Object.create` does.
+  - creates a new object using an existing object as the prototype of the newly created object
 
 - How does `this` behave in different situations.
+  - `this` is the context of a function invocation which JS has 4 function invocation types:
+    - function invocation
+    - method invocation
+    - constructor invocation
+    - indirect invocation
