@@ -14,7 +14,7 @@
     this.pageAmount = pageAmount
     this.read = read
     this.info = function() {
-      title + " by " + author + " , " + pageAmount + " " + read)
+      title + " by " + author + " , " + pageAmount + " " + read;
     }
   }
   ```
