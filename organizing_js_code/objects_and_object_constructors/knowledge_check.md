@@ -43,6 +43,26 @@
 - How does `this` behave in different situations.
   - `this` is the context of a function invocation which JS has 4 function invocation types:
     - function invocation
+      - note that function invocation cannot be a property accessor `object.myFunc()`, which creates a method invocation
+      - in strict mode, `this` is undefined
+      - pitfall
+        - thinking that `this` is the same in an inner function as in the outer function
     - method invocation
+      - `this` is the object that owns the method in a method invocation
+      - pitfall
+        - a method can be extracted from an object into a separated variable in which you might think that `this` is the object which the method was defined in--using `bind` in the statement `const alone = myObj.myMethod.bind(myObj)` fixes the context by binding `this` the object that owns the method
     - constructor invocation
+      - `this` is the newly created object in a constructor invocation
+      - pitfall
+        - using a function invocation to create objects is a potential issue because some constructors may omit the logic to initialize the object when `new` keyword is missing
+          - make sure to use `new` operator in cases when a constructor call is expected
     - indirect invocation
+      - `this` is the first argument of `.call()` or `.apply()` in an indirect invocation
+    - bound function
+      - a bound function is a function whose context and/or arguments are bound to specific values
+      - `this` is the first argument of `myFunc.bind(thisArg)` when invoking a bound function
+    - arrow function
+      - arrow function is designed to declare the function in a shorter form and lexically bind the context
+      - don't have verbose keyword `function` sometimes omitting the `return` keyboard when the arrow function has only one statement
+      - `this` is the enclosing context where the arrow function is defined
+      - the arrow function is bound with the lexical `this` once and forever
