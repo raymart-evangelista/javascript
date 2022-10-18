@@ -31,7 +31,7 @@ function displayLibrary(library) {
     tr.push('<tr><td>' + book.title + '</td>')
     tr.push('<td>' + book.author + '</td>')
     tr.push('<td>' + book.pageAmount + '</td>')
-    tr.push('<td>' + book.read + '</td>')
+    tr.push('<td>' + book.read + '<input type="button" value="change status" onclick="changeStatus(this)"/>' + '</td>')
     tr.push('<td>' + '<input type="button" value="Delete" onclick="deleteRow(this)"/>'+ '</tr>')
   })
   tb.innerHTML = tr.join("");
@@ -87,5 +87,17 @@ function hideForm() {
 function deleteRow(row) {
   var index = row.parentNode.parentNode.rowIndex;
   myLibrary.splice(index-1,1);
+  displayLibrary(myLibrary)
+}
+
+function changeStatus(row) {
+  var index = row.parentNode.parentNode.rowIndex;
+  readStatus = myLibrary[index-1].read
+  console.log(readStatus);
+  if (readStatus === 'not read yet') {
+    myLibrary[index-1].read = 'read';
+  } else {
+    myLibrary[index-1].read = 'not read yet';
+  }
   displayLibrary(myLibrary)
 }
