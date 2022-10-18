@@ -8,15 +8,32 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <table style="width:100%">
+  <table id="libtable" style="width:100%">
     <tr>
       <th>Book</th>
       <th>Author</th>
       <th>Pages</th>
       <th>Status</th>
+      <th>Remove?</th>
     </tr>
     <tbody id="tb"></tbody>
   </table>
+  <br>
+  <div class="dddform">
+    <button id="newBookBtn">NEW BOOK</button>
+    <form action="" id="newBookForm" style="display: none;">
+      <input type="text" name="title" id="title" placeholder="Title">
+      <input type="text" name="author" id="author" placeholder="Author">
+      <input type="text" name="pageAmt" id="pageAmt" placeholder="Page Amount">
+      <select name="readStatuses" id="read-status">
+        <option value="" selected>Book read?</option>
+        <option value="not read yet">not read yet</option>
+        <option value="read">read</option>
+      </select>
+    </form>
+    <button id="submitBtn" style="display: none;">Submit</button>
+  </div>
+  <div id="ddform"></div>
   <script src="./script.js"></script>
 </body>
 </html>
