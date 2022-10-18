@@ -88,5 +88,4 @@ function deleteRow(row) {
   var index = row.parentNode.parentNode.rowIndex;
   myLibrary.splice(index-1,1);
   displayLibrary(myLibrary)
-
 }
