@@ -32,7 +32,7 @@ function displayLibrary(library) {
     tr.push('<td>' + book.author + '</td>')
     tr.push('<td>' + book.pageAmount + '</td>')
     tr.push('<td>' + book.read + '</td>')
-    tr.push('<td>' + '</tr>')
+    tr.push('<td>' + '<input type="button" value="Delete" onclick="deleteRow(this)"/>'+ '</tr>')
   })
   tb.innerHTML = tr.join("");
   // document.getElementById
@@ -81,5 +81,12 @@ function hideForm() {
   submitBtn.style.display = 'none';
   newBookForm.style.display = 'none';
   newBookBtn.style.display = 'block';
+
+}
+
+function deleteRow(row) {
+  var index = row.parentNode.parentNode.rowIndex;
+  myLibrary.splice(index-1,1);
+  displayLibrary(myLibrary)
 
 }
