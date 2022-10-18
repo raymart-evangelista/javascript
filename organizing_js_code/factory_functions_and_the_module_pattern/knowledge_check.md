@@ -48,6 +48,8 @@ const Nerd = name => {
 - Describe IIFE. What does it stand for?
   - Immediately Invoked Function Expression
   - we can immediately assign the object to a variable
+  - the primary reason to use IIFE is for data privacy
+    - vars declared within the IIFE can't be accessed by outside scope
 
 - Briefly explain namespacing and how it's useful
   - it's a technique that is used to avoid naming collisions in programs
