@@ -1,26 +1,44 @@
-let myLibrary = [];
-function Book(title, author, pageAmount, read) {
-  this.title = title
-  this.author = author
-  this.pageAmount = pageAmount
-  this.read = read
-  this.info = function() {
-    return this.title + " by " + this.author + ", " + this.pageAmount + " pages, " + this.read;
+// let myLibrary = [];
+// function Book(title, author, pageAmount, read) {
+//   this.title = title
+//   this.author = author
+//   this.pageAmount = pageAmount
+//   this.read = read
+//   this.info = function() {
+//     return this.title + " by " + this.author + ", " + this.pageAmount + " pages, " + this.read;
+//   }
+// }
+
+class Book {
+  myLibrary = []
+
+  constructor(title, author, pageAmount, read) {
+    this.title = title;
+    this.author = author;
+    this.pageAmount = pageAmount;
+    this.read = read;
+  }
+
+  info = () => {
+    this.title + " by " + this.author + ", " + this.pageAmount + " pages, " + this.read;
+  }
+  static addBookToLibrary(book) {
+    myLibrary.push(book);
+    console.log(`${book.title} added to library`)
   }
 }
 
-function addBookToLibrary(book) {
-  myLibrary.push(book);
-}
-
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
-// console.log(theHobbit);
-// console.log(theHobbit.info())
-
 const theRabbit = new Book("The Rabbit", "R.S. Evangelista", 301, "read");
 
-addBookToLibrary(theHobbit);
-addBookToLibrary(theRabbit)
+Book.addBookToLibrary(theHobbit);
+Book.addBookToLibrary(theRabbit)
+
+// function addBookToLibrary(book) {
+//   myLibrary.push(book);
+// }
+
+
 
 
 // function that loops through the array and displays each book on the page
