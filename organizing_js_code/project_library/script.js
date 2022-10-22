@@ -1,17 +1,4 @@
-// let myLibrary = [];
-// function Book(title, author, pageAmount, read) {
-//   this.title = title
-//   this.author = author
-//   this.pageAmount = pageAmount
-//   this.read = read
-//   this.info = function() {
-//     return this.title + " by " + this.author + ", " + this.pageAmount + " pages, " + this.read;
-//   }
-// }
-
 class Book {
-  myLibrary = []
-
   constructor(title, author, pageAmount, read) {
     this.title = title;
     this.author = author;
@@ -22,41 +9,83 @@ class Book {
   info = () => {
     this.title + " by " + this.author + ", " + this.pageAmount + " pages, " + this.read;
   }
-  static addBookToLibrary(book) {
-    myLibrary.push(book);
+}
+
+class Library {
+
+  constructor() {
+    this.myLibrary = [];
+  }
+
+  addBookToLibrary(book) {
+    this.myLibrary.push(book);
     console.log(`${book.title} added to library`)
+  }
+
+  displayLibrary = () => {
+    let tb = document.getElementById("tb");
+    let tr = [];
+    this.myLibrary.forEach(book => {
+      tr.push('<tr><td>' + book.title + '</td>')
+      tr.push('<td>' + book.author + '</td>')
+      tr.push('<td>' + book.pageAmount + '</td>')
+      tr.push('<td>' + book.read + '<input type="button" value="change status" onclick="changeStatus(this)"/>' + '</td>')
+      tr.push('<td>' + '<input type="button" value="Delete" onclick="deleteRow(this)"/>'+ '</tr>')
+    })
+    tb.innerHTML = tr.join("");
+  }
+
+  changeStatus(row) {
+    var index = row.parentNode.parentNode.rowIndex;
+    let readStatus = this.myLibrary[index-1].read
+    if (readStatus === 'not read yet') {
+      this.myLibrary[index-1].read = 'read';
+    } else {
+      this.myLibrary[index-1].read = 'not read yet';
+    }
+  }
+
+  deleteBook(row) {
+    var index = row.parentNode.parentNode.rowIndex;
+    this.myLibrary.splice(index-1,1);
   }
 }
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
 const theRabbit = new Book("The Rabbit", "R.S. Evangelista", 301, "read");
 
-Book.addBookToLibrary(theHobbit);
-Book.addBookToLibrary(theRabbit)
+const onlineCatalog = new Library();
 
-// function addBookToLibrary(book) {
-//   myLibrary.push(book);
-// }
+onlineCatalog.addBookToLibrary(theHobbit);
+onlineCatalog.addBookToLibrary(theRabbit);
 
+onlineCatalog.displayLibrary();
 
-
-
-// function that loops through the array and displays each book on the page
-tb = document.getElementById("tb");
-function displayLibrary(library) {
-  let tr = [];
-  library.forEach(book => {
-    tr.push('<tr><td>' + book.title + '</td>')
-    tr.push('<td>' + book.author + '</td>')
-    tr.push('<td>' + book.pageAmount + '</td>')
-    tr.push('<td>' + book.read + '<input type="button" value="change status" onclick="changeStatus(this)"/>' + '</td>')
-    tr.push('<td>' + '<input type="button" value="Delete" onclick="deleteRow(this)"/>'+ '</tr>')
-  })
-  tb.innerHTML = tr.join("");
-  // document.getElementById
+function changeStatus(row) {
+  onlineCatalog.changeStatus(row);
+  onlineCatalog.displayLibrary();
 }
 
-displayLibrary(myLibrary);
+function deleteRow(row) {
+  onlineCatalog.deleteBook(row);
+  onlineCatalog.displayLibrary();
+}
+
+// function that loops through the array and displays each book on the page
+// tb = document.getElementById("tb");
+// function displayLibrary(library) {
+//   let tr = [];
+//   library.forEach(book => {
+//     tr.push('<tr><td>' + book.title + '</td>')
+//     tr.push('<td>' + book.author + '</td>')
+//     tr.push('<td>' + book.pageAmount + '</td>')
+//     tr.push('<td>' + book.read + '<input type="button" value="change status" onclick="changeStatus(this)"/>' + '</td>')
+//     tr.push('<td>' + '<input type="button" value="Delete" onclick="deleteRow(this)"/>'+ '</tr>')
+//   })
+//   tb.innerHTML = tr.join("");
+// }
+
+// displayLibrary(myLibrary);
 
 const newBookBtn = document.getElementById('newBookBtn');
 const submitBtn = document.getElementById('submitBtn');
@@ -82,8 +111,10 @@ submitBtn.addEventListener('click', () => {
   // console.log(readStatus)
 
   const newBook = new Book(title.value, author.value, pageAmt.value, readStatus.value);
-  addBookToLibrary(newBook);
-  displayLibrary(myLibrary);
+  onlineCatalog.addBookToLibrary(newBook);
+  onlineCatalog.displayLibrary();
+  // addBookToLibrary(newBook);
+  // displayLibrary(myLibrary);
   hideForm()
   function resetValues() {
     this.title.value = ''
@@ -102,20 +133,20 @@ function hideForm() {
 
 }
 
-function deleteRow(row) {
-  var index = row.parentNode.parentNode.rowIndex;
-  myLibrary.splice(index-1,1);
-  displayLibrary(myLibrary)
-}
+// function deleteRow(row) {
+//   var index = row.parentNode.parentNode.rowIndex;
+//   myLibrary.splice(index-1,1);
+//   displayLibrary(myLibrary)
+// }
 
-function changeStatus(row) {
-  var index = row.parentNode.parentNode.rowIndex;
-  readStatus = myLibrary[index-1].read
-  console.log(readStatus);
-  if (readStatus === 'not read yet') {
-    myLibrary[index-1].read = 'read';
-  } else {
-    myLibrary[index-1].read = 'not read yet';
-  }
-  displayLibrary(myLibrary)
-}
+// function changeStatus(row) {
+//   var index = row.parentNode.parentNode.rowIndex;
+//   readStatus = myLibrary[index-1].read
+//   console.log(readStatus);
+//   if (readStatus === 'not read yet') {
+//     myLibrary[index-1].read = 'read';
+//   } else {
+//     myLibrary[index-1].read = 'not read yet';
+//   }
+//   displayLibrary(myLibrary)
+// }
