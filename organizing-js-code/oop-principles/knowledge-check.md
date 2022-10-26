@@ -1,0 +1,24 @@
+- Explain the "Single Responsibility Principle"
+  - a class or object or module or code within that realm should only have one responsibility--everything an object does should be part of one responsibility
+  - separate DOM stuff from application logic
+  - has to do with loosely coupled objects and tightly coupled objects
+
+- Briefly explain the additional SOLID principles
+  - Single Responsibility
+  - Open/Closed
+    - objects should be open for extension, but closed for modification
+    - a factory function or class should be easily extendable without modifying the class or function itself
+  - Liskov Substitution
+    - every subclass/derived class should be substitutable for their base/parent class
+  - Interface Segregation
+    - client should never be forced to implement an interface that it doesn't use
+    - clients shouldn't be forced to depend on methods they don't use
+  - Dependency Inversion
+    - entities must depend on abstractions not on concretions
+    - high level module must not depend on low level module, but they should depend on abstractions
+
+- Explain what "tightly coupled" objects are and why we want to avoid them
+  - modules that must know about other modules to get something--in other words a module or object that has to "know" about another module or object
+    - for creating highly scalable and maintainable JS apps, modules should be easily swapped for anothe rmodule
+  - for tightly coupled objects, if there were a single point of failure anywhere, it would break the entire application
+  - we can avoid/reduce tightly coupling through publish/subscribe pattern and with the help of a mediator object that isolates the publisher from the subscriber
