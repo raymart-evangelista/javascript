@@ -13,7 +13,9 @@
   - JavaScript validation is completely customizable, but you need to create it all (or use a library)
 
 - Understand JavaScript Constraint Validation API provides more control and customization of form validation
-
+  - it provides a set of methods and properties available on <button>, <fieldset>, <input>, <output>, <select>, and <textarea> elements that have to do with validation
+    - an example is checking the valid state of the input every time its value is changed by running checkValidity() method via the event handler set on the input
 - Use JavaScript to write custom error messages and add custom styling to the errors
-
+  - make use of JavaScript Constraint Validation API
 - Understand forms can also be validated without using Constraint Validation API, which is useful in certain cases
+  - without using the Constraint Validation API, you have to create your own JavaScript
