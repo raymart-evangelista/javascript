@@ -5,3 +5,9 @@
 - json exists as a string which is useful when wanting to transmit data across a network
 - * converting a string to a native object is called `deserialization` while converting a native object to a string is called `serialization`
 - json requires double quotes to be used around string and property names--single quotes are only for surrounding the entire json stirng
+- converting between objects and text
+  - built in json object which contains the following methods:
+    - JSON.parse()
+    - JSON.stringify()
+- dates in json files need to be written as a string
+- functions in json files need to be written as a string
