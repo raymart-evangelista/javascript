@@ -1,4 +1,5 @@
 - What is a callback?
+  - it is called a "callback" function because at some point in time it is "called back" by the higher-order function
   - async functions were handled with callbacks
   - callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete a routine or action
   - instead of immediately returning some results like most functions, functions that use callbacks take some time to produce a result
