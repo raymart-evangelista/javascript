@@ -1,0 +1,7 @@
+# notes
+- json is JavaScript Object Notation, which is a standardized format for structuring data
+- will encounter when working with external servers or APIs--a universal format for transmitting data on the web
+- json can be used independently from JavaScript
+- json exists as a string which is useful when wanting to transmit data across a network
+- * converting a string to a native object is called `deserialization` while converting a native object to a string is called `serialization`
+- json requires double quotes to be used around string and property names--single quotes are only for surrounding the entire json stirng
