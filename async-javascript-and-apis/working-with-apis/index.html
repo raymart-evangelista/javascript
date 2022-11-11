@@ -5,18 +5,45 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    button {
+      display: block;
+    }
+    input {
+      display: block;
+    }
+  </style>
 </head>
 <body>
+  <input type="text">
+  <button>Search</button>
   <img src="#" alt="">
   <script>
+    const button = document.querySelector('button')
     const img = document.querySelector('img')
-    fetch('https://api.giphy.com/v1/gifs/translate?api_key=#########=corgi', { mode: 'cors' })
-      .then((response) => {
-        return response.json()
-      })
-      .then((response) => {
-        img.src = response.data.images.original.url
-      })
+    const input = document.querySelector('input')
+    let err = document.createElement('h1')
+    err.textContent = `uh oh, couldn't find what you were searching for`
+    let body = document.body
+    err.hidden = true
+
+    body.append(err)
+    button.addEventListener('click', () => {
+      fetch(`https://api.giphy.com/v1/gifs/translate?api_key=bb2006d9d3454578be1a99cfad65913d&s=${input.value}`, { mode: 'cors' })
+        .then((response) => {
+          return response.json()
+        })
+        .then((response) => {
+          err.hidden = true
+          img.src = response.data.images.original.url
+          
+        })
+        .catch((error) => {
+          // can add some default image or error msg
+          err.hidden = false
+
+        })
+    })
   </script>
 </body>
 </html>
