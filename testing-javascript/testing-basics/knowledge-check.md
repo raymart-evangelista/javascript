@@ -1,0 +1,18 @@
+- What are the benefits of TDD?
+  - primary goal is specification and not validation
+  - thinking through requirements or design before writing functional code
+  - the steps of tdd include:
+    - add a test, enough test for your code to fail
+    - run tests, often the complete test suite to ensure new test does in fact fail
+    - update functional code to make it pass the new tests
+    - run tests again, fi tests fail, update functional code and retest until the tests pass
+  - keeps you out of the debugger
+  - reduces bugs in new and existing features
+  - reduces cost of change
+  - improves design
+  - encourages refactoring
+  - forces you to slow down and think
+
+- What are some common jest matchers?
+  - `toBe()`, `toEqual`, `toStrictEqual` (`toStrictEqual` is preferred over `toEqual`)
+  - `not` (e.g.: `not.toBe()`)
