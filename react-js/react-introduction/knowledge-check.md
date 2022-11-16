@@ -13,6 +13,8 @@
   - defined in an ES6 module such that you can import code from one module into another module
   - can be defined as a class component or as a function (like a factory function)
   - the ability to split the UI into independent, reusable pieces, and think about each piece in isolation
+  - components shouldn't be confused with React elements
+    - elements are what components are made of
 
 - What is the difference between a functional and a class component?
   - functional components:
