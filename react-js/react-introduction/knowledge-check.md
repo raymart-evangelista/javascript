@@ -26,6 +26,7 @@
 - How should you structure your application into components?
   - you subclass `React.Component` so you are using the base class from the React library
   - you define a component class and use it to create components with the same methods that were defined in the component class
+  - if part of your UI is used several times like `Button`, `Panel`, `Avatar`, or is complex enough on its own like `App`, `FeedStory`, `Comment`, it's a good candidate to be extracted to a separate component
 
 - What does `create-react-app` do?
   - sets up a complete React application for you--does all necessary setup and configuration
