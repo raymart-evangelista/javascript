@@ -15,7 +15,10 @@
       - destructure within the render method
     - for functional components:
       - destructure outside of the return statement or inside the parameter parentheses of the functional component
-
+  - in functional components, we don't pass `props` as an argument to the constructor, but instead pass it as an argument to the component itself
+  - referencing in functional components is different than referencing in class components
+    - in class components, props that have been passed down from the parent component can be used with the syntax `this.props.someFunction`
+    - in functional components, you can reference `props` with `props.someFunction`
 - How do you attach event listeners to elements in React components?
   - instead of using `addEventListener`, assign them right in the JSX
   - bind the method to `this` because all methods in class components  must be bound when passing them to other components
