@@ -5,6 +5,8 @@
 - What is the purpose of `state` in a React component?
   - state is what is used to handle values that can change over time
     - e.g. when clicking a button that will increment `count` on every click; we want to hold that value in `state`
+  - state is often called local or encapsulated--not accessible to any component other than the one that owns and sets 
+  - state can be passed down as props to its child components
 
 - Explain the importance of using `setState()` instead of mutating state directly
   - state should be immutable such that you shouldn't change state directly without using `setState()` because it can lead to unexpected behavior or bugs
