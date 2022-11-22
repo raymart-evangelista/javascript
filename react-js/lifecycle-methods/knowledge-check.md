@@ -21,12 +21,15 @@
 
 - Which tasks should be triggered at the various lifecycle stages of a component?
   - `componentDidMount()`
-    - initiate API calls, loading data from remote endpoint
+    - initiate API calls, loading data from remote endpoint 
+    - happens once after `render()`
     - `setState()` for special cases like tooltips, modals, other concepts when you need to measure a DOM node before rendering something that depends on its position
   - `componentDidUpdate()`
+    - happens when component updates (such as a button click)
     - updating the DOM in response to prop or state changes
     - `setState()`, however incorrect usage can lead to infinite loop--so wrap it in a condition to check for changes form previous state
   - `componentWillUnmount()`
+    - occurs when component is taken off from DOM
     - cleanup tasks
       - `window.removeEventListener(...)`
     - can't modify component state
