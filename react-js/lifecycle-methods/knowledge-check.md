@@ -20,4 +20,13 @@
   - A component can be in different states of its "life", and in React we can use those states to handle certain tasks
 
 - Which tasks should be triggered at the various lifecycle stages of a component?
-  - 
+  - `componentDidMount()`
+    - initiate API calls, loading data from remote endpoint
+    - `setState()` for special cases like tooltips, modals, other concepts when you need to measure a DOM node before rendering something that depends on its position
+  - `componentDidUpdate()`
+    - updating the DOM in response to prop or state changes
+    - `setState()`, however incorrect usage can lead to infinite loop--so wrap it in a condition to check for changes form previous state
+  - `componentWillUnmount()`
+    - cleanup tasks
+      - `window.removeEventListener(...)`
+    - can't modify component state
