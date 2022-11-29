@@ -15,3 +15,45 @@
 
 - How do you ensure that Router links are routed accurately?
   - Render the `RouteSwitch.js` file first instead of `App.js`
+
+- Different types of Routers
+  - `BrowserRouter` is what you will be using most if not all the time
+  - `HashRouter` adds a # portion to URL
+    - 99 percent of the time don't use this
+    - used in server settings where URL cannot be changed
+  - `HistoryRouter` gives direct access to browser history
+    - 99 percent of the time don't use this
+  - `MemoryRouter` stores everything related to history in memory
+    - useful for running tests on Routing code
+  - `StaticRouter` is specific for routing on server
+    - render components on server in react
+    - if you aren't doing server sided rendering, not useful
+  - `NativeRouter` is used for react-native
+
+- React Router Hooks
+  - `useParams` returns an object of custom parameters
+    - `import { useParams } from "react-router-dom"`
+    - `const { someParamName, id } = useParams()`
+  - `useRoutes()` can define routes with JS rather than JSX
+
+- Nested Routes
+- `<Outlet />` renders current route
+  - can pass in context, `useOutletContext()`
+
+- Link Component
+  - `replace` property useful when in a login page and when the client clicks back, they don't go back to the login page
+  - `reloadDocument` reloads entire page
+  - `state` passes data between links
+
+- NavLink Component
+  - just like Link Component
+  - can style links like styling an active link
+
+- Navigate Component
+  - ability to redirect people to another page if page isn't found
+  - `useNavigate` hook instead of Navigate Component
+    - can redirect to new location after set time
+
+- Search Params
+
+- Navigation State
