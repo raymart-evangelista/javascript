@@ -1,3 +1,6 @@
 - How can you mock a callback handler?
-
+  - use `jest.fn()` to mock handler
 - How can you mock a child component?
+  - `jest.mock('../file', () => ({ submission, isDashboardView }))`
+    - used to render bare minimum to realize the validity of the component we're testing
+    - set up props with fake data and mocked functions
